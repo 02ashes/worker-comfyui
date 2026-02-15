@@ -16,7 +16,7 @@ variable "COMFYUI_VERSION" {
 
 # Global defaults for standard CUDA 12.6.3 images
 variable "BASE_IMAGE" {
-  default = "nvidia/cuda:12.6.3-cudnn-runtime-ubuntu24.04"
+  default = "nvidia/cuda:12.8.1-cudnn-runtime-ubuntu24.04"
 }
 
 variable "CUDA_VERSION_FOR_COMFY" {
@@ -24,11 +24,11 @@ variable "CUDA_VERSION_FOR_COMFY" {
 }
 
 variable "ENABLE_PYTORCH_UPGRADE" {
-  default = "false"
+  default = "true"
 }
 
 variable "PYTORCH_INDEX_URL" {
-  default = ""
+  default = "https://download.pytorch.org/whl/cu128"
 }
 
 variable "HUGGINGFACE_ACCESS_TOKEN" {
