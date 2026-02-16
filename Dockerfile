@@ -90,11 +90,11 @@ RUN chmod +x /usr/local/bin/comfy-manager-set-mode
 
 # Install custom nodes for faster cold starts
 RUN cd /comfyui/custom_nodes && \
-    git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git && \
-    git clone https://github.com/kijai/ComfyUI-KJNodes.git && \
-    git clone https://github.com/rgthree/rgthree-comfy.git && \
-    git clone https://github.com/kijai/ComfyUI-MMAudio.git && \
-    git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+    git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git && \
+    git clone --depth 1 https://github.com/kijai/ComfyUI-KJNodes.git && \
+    git clone --depth 1 https://github.com/rgthree/rgthree-comfy.git && \
+    git clone --depth 1 https://github.com/kijai/ComfyUI-MMAudio.git && \
+    git clone --depth 1 https://github.com/ltdrdata/ComfyUI-Manager.git
 
 # Install custom node dependencies
 RUN cd /comfyui/custom_nodes && \
