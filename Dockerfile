@@ -88,13 +88,13 @@ ENV PIP_NO_INPUT=1
 COPY scripts/comfy-manager-set-mode.sh /usr/local/bin/comfy-manager-set-mode
 RUN chmod +x /usr/local/bin/comfy-manager-set-mode
 
-# Install custom nodes for faster cold starts (using zip to avoid git issues)
+# Install custom nodes for faster cold starts
 RUN cd /comfyui/custom_nodes && \
-    wget -q https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite/archive/refs/heads/main.zip -O n1.zip && unzip -q n1.zip && mv ComfyUI-VideoHelperSuite-main ComfyUI-VideoHelperSuite && rm n1.zip && \
-    wget -q https://github.com/kijai/ComfyUI-KJNodes/archive/refs/heads/main.zip -O n2.zip && unzip -q n2.zip && mv ComfyUI-KJNodes-main ComfyUI-KJNodes && rm n2.zip && \
-    wget -q https://github.com/rgthree/rgthree-comfy/archive/refs/heads/main.zip -O n3.zip && unzip -q n3.zip && mv rgthree-comfy-main rgthree-comfy && rm n3.zip && \
-    wget -q https://github.com/kijai/ComfyUI-MMAudio/archive/refs/heads/main.zip -O n4.zip && unzip -q n4.zip && mv ComfyUI-MMAudio-main ComfyUI-MMAudio && rm n4.zip && \
-    wget -q https://github.com/ltdrdata/ComfyUI-Manager/archive/refs/heads/main.zip -O n5.zip && unzip -q n5.zip && mv ComfyUI-Manager-main ComfyUI-Manager && rm n5.zip
+    wget -q https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite/archive/refs/heads/main.tar.gz -O n1.tar.gz && tar xzf n1.tar.gz && mv ComfyUI-VideoHelperSuite-main ComfyUI-VideoHelperSuite && rm n1.tar.gz && \
+    wget -q https://github.com/kijai/ComfyUI-KJNodes/archive/refs/heads/main.tar.gz -O n2.tar.gz && tar xzf n2.tar.gz && mv ComfyUI-KJNodes-main ComfyUI-KJNodes && rm n2.tar.gz && \
+    wget -q https://github.com/rgthree/rgthree-comfy/archive/refs/heads/main.tar.gz -O n3.tar.gz && tar xzf n3.tar.gz && mv rgthree-comfy-main rgthree-comfy && rm n3.tar.gz && \
+    wget -q https://github.com/kijai/ComfyUI-MMAudio/archive/refs/heads/main.tar.gz -O n4.tar.gz && tar xzf n4.tar.gz && mv ComfyUI-MMAudio-main ComfyUI-MMAudio && rm n4.tar.gz && \
+    wget -q https://github.com/ltdrdata/ComfyUI-Manager/archive/refs/heads/main.tar.gz -O n5.tar.gz && tar xzf n5.tar.gz && mv ComfyUI-Manager-main ComfyUI-Manager && rm n5.tar.gz
 
 # Install custom node dependencies
 RUN cd /comfyui/custom_nodes && \
