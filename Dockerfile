@@ -94,11 +94,11 @@ RUN cd /comfyui/custom_nodes && \
     git clone https://github.com/kijai/ComfyUI-KJNodes.git && \
     git clone https://github.com/rgthree/rgthree-comfy.git && \
     git clone https://github.com/kijai/ComfyUI-MMAudio.git && \
-    git clone https://github.com/ltdrdata/ComfyUI-Manager.git && \
-    git clone https://github.com/vrgamegirl19/comfyui-vrgamedevgirl.git
+    git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+
 # Install custom node dependencies
 RUN cd /comfyui/custom_nodes && \
-    for d in ComfyUI-VideoHelperSuite ComfyUI-KJNodes ComfyUI-MMAudio comfyui-vrgamedevgirl rgthree-comfy; do \
+    for d in ComfyUI-VideoHelperSuite ComfyUI-KJNodes ComfyUI-MMAudio rgthree-comfy; do \
       [ -f "$d/requirements.txt" ] && uv pip install -r "$d/requirements.txt" || true; \
     done && \
     uv pip install accelerate librosa opencv-python-headless imageio-ffmpeg ffmpeg-python toml torchdiffeq imageio omegaconf open_clip_torch
