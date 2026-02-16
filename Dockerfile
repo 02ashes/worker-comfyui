@@ -88,13 +88,13 @@ ENV PIP_NO_INPUT=1
 COPY scripts/comfy-manager-set-mode.sh /usr/local/bin/comfy-manager-set-mode
 RUN chmod +x /usr/local/bin/comfy-manager-set-mode
 
-# Install custom nodes for faster cold starts
+# Install custom nodes for faster cold starts (using zip to avoid git issues)
 RUN cd /comfyui/custom_nodes && \
-    git clone --depth 1 https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git && \
-    git clone --depth 1 https://github.com/kijai/ComfyUI-KJNodes.git && \
-    git clone --depth 1 https://github.com/rgthree/rgthree-comfy.git && \
-    git clone --depth 1 https://github.com/kijai/ComfyUI-MMAudio.git && \
-    git clone --depth 1 https://github.com/ltdrdata/ComfyUI-Manager.git
+    wget -q https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite/archive/refs/heads/main.zip -O n1.zip && unzip -q n1.zip && mv ComfyUI-VideoHelperSuite-main ComfyUI-VideoHelperSuite && rm n1.zip && \
+    wget -q https://github.com/kijai/ComfyUI-KJNodes/archive/refs/heads/main.zip -O n2.zip && unzip -q n2.zip && mv ComfyUI-KJNodes-main ComfyUI-KJNodes && rm n2.zip && \
+    wget -q https://github.com/rgthree/rgthree-comfy/archive/refs/heads/main.zip -O n3.zip && unzip -q n3.zip && mv rgthree-comfy-main rgthree-comfy && rm n3.zip && \
+    wget -q https://github.com/kijai/ComfyUI-MMAudio/archive/refs/heads/main.zip -O n4.zip && unzip -q n4.zip && mv ComfyUI-MMAudio-main ComfyUI-MMAudio && rm n4.zip && \
+    wget -q https://github.com/ltdrdata/ComfyUI-Manager/archive/refs/heads/main.zip -O n5.zip && unzip -q n5.zip && mv ComfyUI-Manager-main ComfyUI-Manager && rm n5.zip
 
 # Install custom node dependencies
 RUN cd /comfyui/custom_nodes && \
